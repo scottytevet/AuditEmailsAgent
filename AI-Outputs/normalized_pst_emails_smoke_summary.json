@@ -1,0 +1,14 @@
+{
+  "source_dir": "C:\\Users\\ScottyGomez\\Documents\\PeakSalesRecruiting",
+  "output_path": "AI-Outputs\\normalized_pst_emails_smoke.jsonl",
+  "pst_files_found": 31,
+  "pst_files_processed": 3,
+  "records_written": 10,
+  "folders_scanned": 20,
+  "items_seen": 32,
+  "non_mail_items_skipped": 22,
+  "parse_errors": 0,
+  "body_text_records": 6,
+  "total_body_chars": 94308,
+  "errors": []
+}

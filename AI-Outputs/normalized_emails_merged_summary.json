@@ -1,0 +1,18 @@
+{
+  "inputs": {
+    "AI-Outputs\\normalized_emails_msg_only.jsonl": 1609,
+    "AI-Outputs\\normalized_pst_emails.jsonl": 2567
+  },
+  "output": "C:\\Users\\ScottyGomez\\Projects\\Peak Sales E-mail Parsing\\AI-Outputs\\normalized_emails_merged.jsonl",
+  "records_written": 1545,
+  "duplicate_records_removed": 2631,
+  "input_kind_counts": {
+    "msg": 1609,
+    "email_pst": 2567
+  },
+  "output_kind_counts": {
+    "msg": 655,
+    "email_pst": 890
+  },
+  "replaced_main": "C:\\Users\\ScottyGomez\\Projects\\Peak Sales E-mail Parsing\\AI-Outputs\\normalized_emails.jsonl"
+}

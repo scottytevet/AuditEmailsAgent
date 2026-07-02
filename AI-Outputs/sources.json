@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-07-02T14:30:20.364225+00:00",
+  "app": {
+    "title": "Source Evidence QA",
+    "subtitle": "Ask questions across indexed source records.",
+    "environment": "Local index"
+  },
+  "sources": [
+    {
+      "kind": "email_pst",
+      "label": "PST mailbox export",
+      "description": "",
+      "count": 890,
+      "qualities": {
+        "high": 859,
+        "metadata-only": 31
+      },
+      "origins": {
+        "PST mailbox export": 890
+      },
+      "systems": {
+        "Microsoft Outlook PST": 890
+      },
+      "projects": {
+        "Peak Sales Recruiting PST Export": 890
+      },
+      "order": 1000
+    },
+    {
+      "kind": "email",
+      "label": "Email",
+      "description": "",
+      "count": 655,
+      "qualities": {},
+      "origins": {
+        "PeakSalesRecruiting (Tracy Solomon)": 179,
+        "PeakSalesRecruiting (Donna Millard)": 150,
+        "PeakSalesRecruiting (Jerri Gore)": 150,
+        "PeakSalesRecruiting (John Vandewater)": 103,
+        "PeakSalesRecruiting (Sarah Zamudio)": 48,
+        "PeakSalesRecruiting (Vivian Martin)": 14,
+        "PeakSalesRecruiting (Emilee Askin)": 11
+      },
+      "systems": {},
+      "projects": {},
+      "order": 1000
+    },
+    {
+      "kind": "graph_meeting_reconciliation",
+      "label": "Graph Meeting Reconciliation",
+      "description": "",
+      "count": 38,
+      "qualities": {
+        "metadata_only": 38
+      },
+      "origins": {
+        "GraphCommunicationsAudit": 38
+      },
+      "systems": {},
+      "projects": {
+        "GraphCommunicationsAudit": 38
+      },
+      "order": 1000
+    },
+    {
+      "kind": "graph_transcript_placeholder",
+      "label": "Graph Transcript Placeholder",
+      "description": "",
+      "count": 7,
+      "qualities": {
+        "metadata_only": 7
+      },
+      "origins": {
+        "GraphCommunicationsAudit": 7
+      },
+      "systems": {},
+      "projects": {
+        "GraphCommunicationsAudit": 7
+      },
+      "order": 1000
+    },
+    {
+      "kind": "graph_transcript",
+      "label": "Graph Transcript",
+      "description": "",
+      "count": 5,
+      "qualities": {
+        "high": 3,
+        "low": 2
+      },
+      "origins": {
+        "GraphCommunicationsAudit": 5
+      },
+      "systems": {},
+      "projects": {
+        "GraphCommunicationsAudit": 5
+      },
+      "order": 1000
+    }
+  ]
+}

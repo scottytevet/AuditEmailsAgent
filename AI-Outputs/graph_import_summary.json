@@ -1,0 +1,20 @@
+{
+  "graph_root": "C:\\Users\\ScottyGomez\\Projects\\GraphCommunicationsAudit",
+  "output_path": "C:\\Users\\ScottyGomez\\Projects\\Peak Sales E-mail Parsing\\AI-Outputs\\graph_source_records.jsonl",
+  "records_written": 50,
+  "transcript_records": 5,
+  "transcript_quality_counts": {
+    "high": 3,
+    "low": 2,
+    "missing_text_file": 0
+  },
+  "placeholder_records": 7,
+  "meeting_reconciliation_records": 38,
+  "meeting_status_counts": {
+    "external_or_synced_invite_no_onedrive_artifact_found": 18,
+    "meeting_artifact_found": 11,
+    "no_onedrive_artifact_found": 7,
+    "related_document_only": 2
+  },
+  "meeting_reconciliation_source": "C:\\Users\\ScottyGomez\\Projects\\GraphCommunicationsAudit\\output\\meeting-reconciliation-20260630T154802Z.json"
+}

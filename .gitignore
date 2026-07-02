@@ -5,6 +5,5 @@ __pycache__/
 *.pyo
 .pytest_cache/
 
-AI-Outputs/
 data/*.sqlite
 data/*.sqlite-*

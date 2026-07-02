@@ -1,0 +1,13 @@
+{
+  "source_dir": "C:\\Users\\ScottyGomez\\Documents\\PeakSalesRecruiting",
+  "report_path": "C:\\Users\\ScottyGomez\\Documents\\PeakSalesRecruiting\\Reports-PeakSaleRecruiting_com-Peaksalesrecruiting_com-StartDirectExport-PeakSalesRecruiting_MessageDump-2026-06-26_15-36-50\\Items_0_2026-06-26_15-36-50.csv",
+  "output_path": "AI-Outputs\\normalized_emails_msg_only.jsonl",
+  "purview_rows": 3642,
+  "msg_files_found": 1609,
+  "records_written": 1609,
+  "parse_errors": 0,
+  "purview_matches": 1441,
+  "body_text_records": 1591,
+  "total_body_chars": 19031385,
+  "errors": []
+}
