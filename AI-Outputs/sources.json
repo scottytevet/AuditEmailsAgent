@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T14:30:20.364225+00:00",
+  "generated_at": "2026-07-02T17:53:25.920371+00:00",
   "app": {
     "title": "Source Evidence QA",
     "subtitle": "Ask questions across indexed source records.",
@@ -59,6 +59,25 @@
       "systems": {},
       "projects": {
         "GraphCommunicationsAudit": 38
+      },
+      "order": 1000
+    },
+    {
+      "kind": "peak_new_docs",
+      "label": "Peak New Docs",
+      "description": "",
+      "count": 16,
+      "qualities": {
+        "high": 16
+      },
+      "origins": {
+        "Peak New Docs": 16
+      },
+      "systems": {
+        "Peak New Docs": 16
+      },
+      "projects": {
+        "Peak Sales Recruiting": 16
       },
       "order": 1000
     },

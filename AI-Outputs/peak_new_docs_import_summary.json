@@ -1,0 +1,20 @@
+{
+  "source_dir": "C:\\Users\\ScottyGomez\\Documents\\PeakSalesRecruiting\\Peak New Docs",
+  "output_path": "C:\\Users\\ScottyGomez\\Projects\\Peak Sales E-mail Parsing\\AI-Outputs\\peak_new_docs_source_records.jsonl",
+  "files_found": 16,
+  "records_written": 16,
+  "extension_counts": {
+    ".docx": 2,
+    ".pdf": 12,
+    ".xlsx": 2
+  },
+  "quality_counts": {
+    "high": 16
+  },
+  "extraction_status_counts": {
+    "ok": 16
+  },
+  "total_body_chars": 143842,
+  "total_extracted_chars": 138830,
+  "errors": []
+}

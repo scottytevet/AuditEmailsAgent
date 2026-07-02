@@ -4,7 +4,7 @@ This project now includes a small React + Python MVP for searching and asking qu
 
 ## Shape
 
-- `app/email_index.py` builds a SQLite database from `AI-Outputs/normalized_emails.jsonl`, `AI-Outputs/email_threads.jsonl`, and optional `AI-Outputs/graph_source_records.jsonl`.
+- `app/email_index.py` builds a SQLite database from `AI-Outputs/normalized_emails.jsonl`, `AI-Outputs/email_threads.jsonl`, optional `AI-Outputs/graph_source_records.jsonl`, and optional `AI-Outputs/peak_new_docs_source_records.jsonl`.
 - `app/server.py` serves the React evidence workbench and JSON API from one Python process.
 - `web/` contains the generalized React source workbench.
 - The local SQLite database defaults to `%LOCALAPPDATA%\PeakSalesEmailMVP\email_mvp.sqlite`.
@@ -15,10 +15,11 @@ The app uses SQLite FTS5 for keyword search and optional Azure AI Foundry embedd
 
 1. Copy `.env.example` to `.env`.
 2. Add Azure AI Foundry settings if you want embeddings and generated answers.
-3. Run the existing normalization pipeline:
+3. Run the existing normalization/import pipeline:
 
 ```powershell
 python scripts\normalize_peak_sales_emails.py
+python scripts\import_peak_new_docs.py
 python scripts\build_peak_sales_thread_manifest.py
 ```
 
@@ -120,6 +121,28 @@ Then normalize PST records, merge them with the MSG export records, rebuild the 
 ```
 
 The PST normalizer scans `C:\Users\ScottyGomez\Documents\PeakSalesRecruiting` by default and labels records dynamically as `email_pst` / `PST mailbox export`. Embeddings can be rebuilt afterward with `python -m app.email_index embeddings`, but that sends PST-inclusive source text to the configured model provider.
+
+## Import Peak New Docs
+
+The `C:\Users\ScottyGomez\Documents\PeakSalesRecruiting\Peak New Docs` folder is indexed as a first-class source named `Peak New Docs`. It currently supports `.pdf`, `.docx`, and `.xlsx` files.
+
+Install the document parser dependencies into the project virtual environment:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-docs.txt
+```
+
+Then import the files and rebuild the index:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\import_peak_new_docs.py
+.\.venv\Scripts\python.exe -m app.email_index rebuild
+```
+
+The importer writes:
+
+- `AI-Outputs\peak_new_docs_source_records.jsonl`
+- `AI-Outputs\peak_new_docs_import_summary.json`
 
 ## Source Catalog
 

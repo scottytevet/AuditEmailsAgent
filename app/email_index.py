@@ -21,6 +21,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_EMAILS = PROJECT_ROOT / "AI-Outputs" / "normalized_emails.jsonl"
 DEFAULT_THREADS = PROJECT_ROOT / "AI-Outputs" / "email_threads.jsonl"
 DEFAULT_GRAPH_RECORDS = PROJECT_ROOT / "AI-Outputs" / "graph_source_records.jsonl"
+DEFAULT_PEAK_NEW_DOCS = PROJECT_ROOT / "AI-Outputs" / "peak_new_docs_source_records.jsonl"
 DEFAULT_SOURCE_CATALOG = PROJECT_ROOT / "AI-Outputs" / "sources.json"
 
 
@@ -395,6 +396,7 @@ def rebuild_database(
     emails_path: Path = DEFAULT_EMAILS,
     threads_path: Path = DEFAULT_THREADS,
     graph_records_path: Path = DEFAULT_GRAPH_RECORDS,
+    peak_new_docs_path: Path = DEFAULT_PEAK_NEW_DOCS,
     with_embeddings: bool = False,
     embedding_model: str | None = None,
 ) -> dict[str, Any]:
@@ -404,21 +406,26 @@ def rebuild_database(
         reset_index(conn)
         emails = read_jsonl(emails_path)
         graph_records = read_jsonl(graph_records_path) if graph_records_path.exists() else []
-        all_records = emails + graph_records
+        peak_new_docs = read_jsonl(peak_new_docs_path) if peak_new_docs_path.exists() else []
+        all_records = emails + graph_records + peak_new_docs
         threads = read_jsonl(threads_path) if threads_path.exists() else []
         insert_threads(conn, threads)
         inserted = insert_emails(conn, all_records, build_thread_lookup(threads))
         conn.commit()
+        catalog_path = write_source_catalog(conn)
         result = database_status(conn, db_path)
         result.update(
             {
                 "emails_input": str(emails_path),
                 "threads_input": str(threads_path),
                 "graph_records_input": str(graph_records_path),
+                "peak_new_docs_input": str(peak_new_docs_path),
                 "emails_read": len(emails),
                 "graph_records_read": len(graph_records),
+                "peak_new_docs_read": len(peak_new_docs),
                 "threads_read": len(threads),
                 "source_records_indexed": inserted,
+                "source_catalog_written": str(catalog_path),
             }
         )
         if with_embeddings:
@@ -842,6 +849,8 @@ def database_status(conn: sqlite3.Connection, db_path: Path | str = DEFAULT_DB) 
             "email_threads_exists": DEFAULT_THREADS.exists(),
             "graph_source_records": str(DEFAULT_GRAPH_RECORDS),
             "graph_source_records_exists": DEFAULT_GRAPH_RECORDS.exists(),
+            "peak_new_docs_source_records": str(DEFAULT_PEAK_NEW_DOCS),
+            "peak_new_docs_source_records_exists": DEFAULT_PEAK_NEW_DOCS.exists(),
             "source_catalog": str(source_catalog_path()),
             "source_catalog_exists": source_catalog_path().exists(),
         },
@@ -1567,6 +1576,7 @@ def main() -> int:
     parser.add_argument("--emails", type=Path, default=DEFAULT_EMAILS)
     parser.add_argument("--threads", type=Path, default=DEFAULT_THREADS)
     parser.add_argument("--graph-records", type=Path, default=DEFAULT_GRAPH_RECORDS)
+    parser.add_argument("--peak-new-docs", type=Path, default=DEFAULT_PEAK_NEW_DOCS)
     parser.add_argument("--with-embeddings", action="store_true")
     parser.add_argument("--limit", type=int)
     args = parser.parse_args()
@@ -1577,6 +1587,7 @@ def main() -> int:
             emails_path=args.emails,
             threads_path=args.threads,
             graph_records_path=args.graph_records,
+            peak_new_docs_path=args.peak_new_docs,
             with_embeddings=args.with_embeddings,
         )
     else:

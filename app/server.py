@@ -120,6 +120,7 @@ class Handler(BaseHTTPRequestHandler):
             emails_path=Path(body.get("emails") or email_index.DEFAULT_EMAILS),
             threads_path=Path(body.get("threads") or email_index.DEFAULT_THREADS),
             graph_records_path=Path(body.get("graph_records") or email_index.DEFAULT_GRAPH_RECORDS),
+            peak_new_docs_path=Path(body.get("peak_new_docs") or email_index.DEFAULT_PEAK_NEW_DOCS),
             with_embeddings=bool(body.get("with_embeddings")),
         )
 
