@@ -1,0 +1,2 @@
+pywin32>=312
+extract-msg>=0.55.0
